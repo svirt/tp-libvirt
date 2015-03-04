@@ -113,7 +113,7 @@ def run(test, params, env):
                             emulated_size=emulated_size)
             new_pool = libvirt_storage.PoolVolume(pool_name)
             if not new_pool.create_volume(vol_name, volume_size):
-                raise error.TestFail("Create volume %s failed." % vol_name)
+                raise error.TestFail("Creation of volume %s failed." % vol_name)
             volumes = new_pool.list_volumes()
             volume = volumes[vol_name]
             virsh.attach_disk(vm_name, volume, disk_target, "--config")
